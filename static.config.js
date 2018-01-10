@@ -60,6 +60,10 @@ export default {
       component: 'src/containers/Camp'
     },
     {
+      path: '/guide',
+      component: 'src/containers/Guide'
+    },
+    {
       is404: true,
       component: 'src/containers/NotFound'
     }
