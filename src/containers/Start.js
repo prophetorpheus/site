@@ -11,8 +11,7 @@ import {
   Section,
   Link as A,
   Module,
-  mediaQueries,
-  cx
+  mediaQueries
 } from '@hackclub/design-system'
 import { Head, Link } from 'react-static'
 import Nav from '../components/Nav'
@@ -20,38 +19,38 @@ import Footer from '../components/Footer'
 
 const One = Section.extend`
   padding-top: 0 !important;
-  background-color: ${cx('red.5')};
+  background-color: ${props => props.theme.colors.red[5]};
   background-image: linear-gradient(
     16deg,
-    ${cx('orange.4')} 0%,
-    ${cx('red.5')} 50%,
-    ${cx('red.6')} 100%
+    ${props => props.theme.colors.orange[4]} 0%,
+    ${props => props.theme.colors.red[5]} 50%,
+    ${props => props.theme.colors.red[6]} 100%
   );
 `
 const Two = Section.extend`
-  background-color: ${cx('violet.6')};
+  background-color: ${props => props.theme.colors.violet[6]};
   background-image: linear-gradient(
     48deg,
-    ${cx('violet.5')} 0%,
-    ${cx('violet.6')} 50%,
-    ${cx('indigo.4')} 100%
+    ${props => props.theme.colors.violet[5]} 0%,
+    ${props => props.theme.colors.violet[6]} 50%,
+    ${props => props.theme.colors.indigo[4]} 100%
   );
 `
 const Three = Section.extend`
-  background-color: ${cx('blue.6')};
+  background-color: ${props => props.theme.colors.blue[6]};
   background-image: linear-gradient(
     -48deg,
-    ${cx('blue.7')} 0%,
-    ${cx('blue.6')} 50%,
-    ${cx('indigo.4')} 100%
+    ${props => props.theme.colors.blue[7]} 0%,
+    ${props => props.theme.colors.blue[6]} 50%,
+    ${props => props.theme.colors.indigo[4]} 100%
   );
 `
 const Four = Section.extend`
-  background-color: ${cx('green.6')};
+  background-color: ${props => props.theme.colors.green[6]};
   background-image: linear-gradient(
     -32deg,
-    ${cx('teal.7')} 0%,
-    ${cx('lime.6')} 100%
+    ${props => props.theme.colors.teal[7]} 0%,
+    ${props => props.theme.colors.lime[6]} 100%
   );
 `
 
@@ -72,7 +71,7 @@ const CardBase = Container.extend.attrs({ bg: 'blue.0', p: 3, mt: 3 })`
   ${mediaQueries[1]} { transform: rotate(2deg); }
 
   p {
-    color: ${cx('slate')};
+    color: ${props => props.theme.colors.slate};
     font-size: 1rem;
     line-height: 1.375;
     margin-top: .5rem;
