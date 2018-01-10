@@ -8,7 +8,7 @@ import {
   Text,
   Button,
   LargeButton,
-  Section as S,
+  Section,
   Link as A,
   Module,
   mediaQueries,
@@ -18,10 +18,6 @@ import { Head, Link } from 'react-static'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-/* will be fixed in next DS release */
-const Section = S.extend`
-  flex-direction: column;
-`
 const One = Section.extend`
   padding-top: 0 !important;
   background-color: ${cx('red.5')};
