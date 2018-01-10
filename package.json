@@ -27,6 +27,7 @@
     "react-static": "4.x.x",
     "rebass": "^1.0.4",
     "serve": "^6.4.3",
+    "tocbot": "^4.1.1",
     "uglifyjs-webpack-plugin": "^1.1.5",
     "unfetch": "^3.0.0",
     "yup": "^0.23.0"
