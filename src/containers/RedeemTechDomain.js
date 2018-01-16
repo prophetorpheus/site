@@ -11,7 +11,6 @@ import Nav from '../components/Nav'
 import RedeemTechDomainForm from '../components/RedeemTechDomainForm'
 
 const Header = Section.withComponent('header').extend`
-  flex-direction: column;
   padding-top: 0 !important;
   background-color: ${props => props.theme.colors.red[5]};
   background-image: linear-gradient(

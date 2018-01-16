@@ -5,7 +5,6 @@ import Nav from '../components/Nav'
 import Cloud9Form from '../components/Cloud9Form'
 
 const Header = Section.withComponent('header').extend`
-  flex-direction: column;
   padding-top: 0 !important;
   background-color: ${props => props.theme.colors.blue[6]};
   background-image: linear-gradient(
