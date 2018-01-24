@@ -18,55 +18,6 @@ const Root = Flex.extend`
   max-width: 100vw;
   height: 100vh;
   overflow-y: hidden;
-
-  > div:first-of-type {
-    position: absolute;
-    top: 0;
-  }
-
-  img {
-    margin: 0.66em;
-    will-change: transform;
-    transform: scale(1, 1);
-    transition-duration: 0.25s;
-    transition-timing-function: ease-in;
-    transition-delay: initial;
-    transition-property: transform;
-    &:hover {
-      transform: scale(1.25);
-    }
-    &:nth-child(odd) {
-      margin-left: 1.5em;
-      margin-top: 0;
-    }
-    &:nth-child(even) {
-      margin-right: 1em;
-    }
-    &:nth-child(6n) {
-      width: 4em;
-      height: 4em;
-    }
-    &:nth-child(8n) {
-      width: 2.5em;
-      height: 2.5em;
-      margin-left: 1em;
-    }
-    &:nth-child(5n) {
-      margin-top: 2em;
-    }
-    &:nth-child(13n) {
-      width: 1.5em;
-      height: 1.5em;
-    }
-    &:nth-child(17n) {
-      margin-top: 3em;
-    }
-    @media screen and (max-width: 32em) {
-      max-width: 72px;
-      max-height: 72px;
-      margin: 0.25em;
-    }
-  }
 `
 
 const Cloud = Box.extend`
@@ -74,7 +25,7 @@ const Cloud = Box.extend`
   border-radius: 4rem;
   box-shadow: 0 0 2rem 4rem rgba(252, 252, 252, 0.95);
   background-color: rgba(252, 252, 252, 0.95);
-  max-width: 30rem;
+  max-width: 40rem;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -99,26 +50,10 @@ const Cloud = Box.extend`
 LargeButton.link = LargeButton.withComponent(Link)
 
 const Bubbles = ({ children }) => (
-  <Root justify="center" align="center" pt={3} px={[0, 3]}>
-    <Flex justify="space-around" wrap pt={2}>
-      {shuffle([...range(92), ...range(92)]).map((i, n) => (
-        <Avatar
-          src={`/avatars/${i + 1}.jpg`}
-          size={sample([48, 56, 64, 72, 84, 96]) + 'px'}
-          key={`a-${n}`}
-        />
-      ))}
-    </Flex>
+  <Root justify="center" align="flex-end" pt={3} px={[0, 3]}>
     <Cloud>
-      <Text f={[4, 5]} color="accent" mx="auto" m={0} bold caps>
-        By the students,
-        <br />
-        for the students.
-      </Text>
-      <Heading.h1 f={[6, 7]} color="primary" mx="auto" mt={2} mb={3}>
-        High school
-        <br />
-        coding clubs.
+      <Heading.h1 f={[5, 6]} color="primary" mx="auto" mt={2} mb={3}>
+        High school coding clubs.
       </Heading.h1>
       <Text f={[3, 4]} color="gray.9" mx="auto" m={0}>
         Hack Club is a nonprofit network of coding clubs where members learn to
@@ -130,7 +65,7 @@ const Bubbles = ({ children }) => (
           Find a Club
         </LargeButton>
         <LargeButton.link to="/start" m={2}>
-          Apply »
+          Start a club »
         </LargeButton.link>
       </Flex>
     </Cloud>

@@ -5,23 +5,29 @@ import {
   Container,
   Flex,
   Box,
-  Text,
+  Text as T,
   Button,
   LargeButton,
   Section as S,
   Link as A,
-  Module,
+  Module as M,
   mediaQueries,
+  space,
   cx
 } from '@hackclub/design-system'
 import { Head, Link } from 'react-static'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import styled from 'styled-components'
 
 /* will be fixed in next DS release */
-const Section = S.extend`
+const Section = S.extend.attrs({
+  py: [space[1], space[6]]
+})`
   flex-direction: column;
 `
+const Text = T.extend.attrs({color: 'slate'})``
+const Module = props => (<M color="slate" {...props} />)
 const One = Section.extend`
   padding-top: 0 !important;
   background-color: ${cx('red.5')};
@@ -33,13 +39,13 @@ const One = Section.extend`
   );
 `
 const Two = Section.extend`
-  background-color: ${cx('violet.6')};
-  background-image: linear-gradient(
-    48deg,
-    ${cx('violet.5')} 0%,
-    ${cx('violet.6')} 50%,
-    ${cx('indigo.4')} 100%
-  );
+  /* background-color: ${cx('violet.6')};*/
+  /* background-image: linear-gradient(
+*   48deg,
+*   ${cx('violet.5')} 0%,
+*   ${cx('violet.6')} 50%,
+*   ${cx('indigo.4')} 100%
+* );*/
 `
 const Three = Section.extend`
   background-color: ${cx('blue.6')};
@@ -106,64 +112,8 @@ export default () => (
         The awesome coding club at your high school is coming soon.
       </Heading.h2>
     </One>
-    <Two>
-      <Heading.h2 f={[4, 5]}>Students: apply and start your club!</Heading.h2>
-      <Modules>
-        <Module
-          icon="assignment"
-          heading="Submit your application"
-          body="Fill out a few questions to get going—totally free."
-        />
-        <Module
-          icon="ring_volume"
-          heading="Training call"
-          body="We’ll start getting to know you and making a plan for your club."
-        />
-        <Module
-          icon="event_available"
-          heading="Lead your club!"
-          body="Schedule your first meeting, start marketing, and get ready!"
-        />
-      </Modules>
-      <Box p={3} pb={0} align="center">
-        <LargeButton.link to="/apply" inverted>
-          Apply to Hack Club
-        </LargeButton.link>
-      </Box>
-    </Two>
-    <Three>
-      <Flex flexDirection={['column', 'row']} align="center">
-        <Container maxWidth={28} align={['center', 'right']} mr={[0, 4]}>
-          <Heading.h2 f={[4, 5]}>Hack Clubs are student-led.</Heading.h2>
-          <Text f={[3, 4]} my={1}>
-            Each club meets weekly after school at their high school.
-          </Text>
-          <Button.link bg="info" my={3} inverted to="/meetings" mt={4}>
-            See what clubs look like »
-          </Button.link>
-        </Container>
-        <Card name="Are you a teacher or parent?">
-          <Text m={0}>
-            We hate to say it, but we’re currently only accepting applications
-            from students.
-          </Text>
-          <Text m={0}>
-            Teachers and parents can help by recruiting students, sharing Hack
-            Club with the local PTA, and expressing interest in Hack Club to
-            school administration.
-          </Text>
-          <Text m={0}>
-            That said, shoot us an email at{' '}
-            <A color="primary" href="mailto:contact@hackclub.com">
-              contact@hackclub.com
-            </A>{' '}
-            and we’d really love to help where we can.
-          </Text>
-        </Card>
-      </Flex>
-    </Three>
-    <Four>
-      <Heading.h2 f={[4, 5]}>
+    <Section>
+      <Heading.h2 f={[4, 5]} color="primary">
         HQ provides the resources you’ll need to soar.
       </Heading.h2>
       <Modules>
@@ -198,12 +148,107 @@ export default () => (
           body="Get stickers, posters, and ideas for spreading the word about your club."
         />
       </Modules>
+    </Section>
+    <Section>
+      <Heading.h2 f={[4, 5]} color="primary">
+        Students: apply and start your club!
+      </Heading.h2>
+      <Modules>
+        <Module
+          icon="assignment"
+          heading="Submit your application"
+          body="Fill out a few questions to get going—totally free."
+        />
+        <Module
+          icon="ring_volume"
+          heading="Training call"
+          body="We’ll start getting to know you and making a plan for your club."
+        />
+        <Module
+          icon="event_available"
+          heading="Lead your club!"
+          body="Schedule your first meeting, start marketing, and get ready!"
+        />
+      </Modules>
       <Box align="center" mt={4}>
-        <LargeButton.link to="/apply" inverted f={[3, 4]}>
+        <LargeButton.link to="/apply" f={[3, 4]}>
           Apply to Hack Club
         </LargeButton.link>
       </Box>
-    </Four>
+    </Section>
+    <Section>
+      <Flex flexDirection={['column', 'row']} align="center">
+        <Container maxWidth={28} align={['center', 'right']} mr={[0, 4]}>
+          <Heading.h2 f={[4, 5]} color="info">Hack Clubs are student-led.</Heading.h2>
+          <Text f={[3, 4]} my={1}>
+            Each club meets weekly after school at their high school.
+          </Text>
+          <Button.link bg="info" my={3} to="/meetings" mt={4}>
+            See what clubs look like »
+          </Button.link>
+        </Container>
+        <Card name="Are you a teacher or parent?">
+          <Text m={0}>
+            We hate to say it, but we’re currently only accepting applications
+            from students.
+          </Text>
+          <Text m={0}>
+            Teachers and parents can help by recruiting students, sharing Hack
+            Club with the local PTA, and expressing interest in Hack Club to
+            school administration.
+          </Text>
+          <Text m={0}>
+            That said, shoot us an email at{' '}
+            <A color="primary" href="mailto:contact@hackclub.com">
+              contact@hackclub.com
+            </A>{' '}
+            and we’d really love to help where we can.
+          </Text>
+        </Card>
+      </Flex>
+    </Section>
+    {/* <Four> */}
+      {/* <Heading.h2 f={[4, 5]}>
+          HQ provides the resources you’ll need to soar.
+          </Heading.h2>
+          <Modules>
+          <Module
+          icon="forum"
+          heading="Online community"
+          body="Join our Slack and meet thousands of other club leaders and members."
+          />
+          <Module
+          icon="chrome_reader_mode"
+          heading="Curriculum"
+          body="Give your members dozens of tutorials for making websites, apps, and games."
+          />
+          <Module
+          icon="voice_chat"
+          heading="Mentorship"
+          body="Talk to our team for guidance and assistance whenever you need help."
+          />
+          <Module
+          icon="description"
+          heading="Structure & guidelines"
+          body="Learn from hundreds of other clubs—we’ve got info, advice, and experience."
+          />
+          <Module
+          icon="local_activity"
+          heading="Local events"
+          body="Attend hackathons, workshops, and other events from Hack Clubs nearby."
+          />
+          <Module
+          icon="wallpaper"
+          heading="Marketing"
+          body="Get stickers, posters, and ideas for spreading the word about your club."
+          />
+          </Modules>
+          <Box align="center" mt={4}>
+          <LargeButton.link to="/apply" inverted f={[3, 4]}>
+          Apply to Hack Club
+          </LargeButton.link>
+          </Box>
+          </Four> */}
     <Footer />
   </ThemeProvider>
 )
