@@ -21,8 +21,8 @@ export default () => (
     </Head>
     <Nav style={{ position: 'absolute', top: 0 }} mode="cloud" />
     <Bubbles />
-    <Stripe />
     <About />
+    <Stripe />
     <Superpower />
     <Collage />
     <Mosaic />
