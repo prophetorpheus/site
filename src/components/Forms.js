@@ -308,5 +308,3 @@ export const Fieldset = props => (
     <FieldsBox>{props.children}</FieldsBox>
   </Flex>
 )
-
-export const Aside = props => <Box bg="snow" {...props} />
